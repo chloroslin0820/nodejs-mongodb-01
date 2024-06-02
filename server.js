@@ -21,7 +21,7 @@ app.use(cors());
 
 dotenv.config();
 const PORT = process.env.PORT;
-const dbUri = process.env.URI;
+const dbUri = process.env.MONGO_URL;
 
 mongoose
 .connect(dbUri)

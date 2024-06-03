@@ -71,6 +71,6 @@ body {
     display: flex;
 }
 #messages > li h3 {
-    /* padding: 1rem 0.3rem 0 0; */
+    padding-left: 0.3rem;
     font-size: 0.8rem;
 }

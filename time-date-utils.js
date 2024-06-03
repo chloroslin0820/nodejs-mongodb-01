@@ -7,7 +7,7 @@ export const getTime = () => {
         second: '2-digit',
     };
 
-    return new Intl.DateTimeFormat('en-US', timeOptions).format(now);
+    return new Intl.DateTimeFormat('en-UK', timeOptions).format(now);
 }
 
 export const getDate = () => {
@@ -19,5 +19,5 @@ export const getDate = () => {
         year: 'numeric'
     };
 
-    return new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+    return new Intl.DateTimeFormat('en-UK', dateOptions).format(now);
 }

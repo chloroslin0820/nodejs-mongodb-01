@@ -52,7 +52,7 @@ socket.on('chat message', async (data) => {
     msg = splitedData[0];
     writtenTime = splitedData[1];
     writtenDate = splitedData[2];
-    console.log(msg + ' ' + writtenTime + writtenDate);
+    console.log(msg + ' ' + writtenTime + ' ' + writtenDate);
     
     const item = document.createElement('li');
     const h3Div = document.createElement('div');

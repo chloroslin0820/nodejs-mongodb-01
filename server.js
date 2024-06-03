@@ -65,7 +65,7 @@ io.on('connection', (socket) => {
             if(msg){
                 const currentTime = getTime();
                 const currentDate = getDate();
-                io.emit('chat message', msg + '/* space */' + currentTime + '/* space */' + currentDate);
+                io.emit('chat message', msg + '/* space */' + currentTime + ' ' + currentDate);
             }
             msg = '';
         }, 1000);

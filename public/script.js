@@ -50,9 +50,10 @@ formDOM.addEventListener('submit', async (e) => {
 socket.on('chat message', async (data) => {
     const splitedData = data.split('/* space */');
     msg = splitedData[0];
-    writtenTime = splitedData[1];
-    writtenDate = splitedData[2];
-    console.log(msg + ' ' + writtenTime + ' ' + writtenDate);
+    const splitedTimeDate = splitedData[1].split(' ');
+    writtenTime = splitedTimeDate[0];
+    writtenDate = splitedTimeDate[1];
+    console.log(writtenTime, writtenDate);
     
     const item = document.createElement('li');
     const h3Div = document.createElement('div');
@@ -62,10 +63,8 @@ socket.on('chat message', async (data) => {
     messageHeader.textContent = msg;
 
     // Create h3 element for current time
-    const timeHeader = document.createElement('h3');
-    timeHeader.textContent = writtenTime;
-    const dateHeader = document.createElement('h3');
-    dateHeader.textContent = writtenDate;
+    const timeDateHeader = document.createElement('h3');
+    timeDateHeader.textContent = writtenTime + ' ' + writtenDate;
 
     try {
         await axios.post("/api/msg_record", {
@@ -82,8 +81,7 @@ socket.on('chat message', async (data) => {
     // Append both headers to the list item
     item.appendChild(messageHeader);
     item.appendChild(h3Div);
-    h3Div.appendChild(timeHeader);
-    h3Div.appendChild(dateHeader);
+    h3Div.appendChild(timeDateHeader);
 
     // Append the list item to the messages list
     messagesDOM.appendChild(item);
